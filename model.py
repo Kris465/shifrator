@@ -7,6 +7,9 @@ def write(data):
 
 
 def read():
-    with open('data.json', 'r', encoding="UTF-8") as f:
-        data = json.load(f)
+    try:
+        with open('data.json', 'r+', encoding="UTF-8") as f:
+            data = json.load(f)
+    except Exception as e:
+        data = {"key": "value"}
     return data
